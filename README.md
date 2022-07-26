@@ -17,10 +17,11 @@ Use this one-liner to read your [npm auth token](http://blog.npmjs.org/post/1183
 cat ~/.npmrc | head -1 | sed 's/.*=//g'
 ```
 
-Save the token in your Heroku app config:
+Save the token and npm registry url in your Heroku app config:
 
 ```sh
 heroku config:set NPM_AUTH_TOKEN=YOUR_TOKEN_HERE
+heroku config:set NPM_REGISTRY=YOUR_NPM_REGISTRY_HERE
 ```
 
 Configure your app to use this buildpack:
@@ -65,5 +66,5 @@ heroku config:set NPM_CONFIG_PRODUCTION=false
 The `zeke/npm` buildpack from the [Heroku Buildpack Registry](https://devcenter.heroku.com/articles/buildpack-registry) represents the latest stable version of the buildpack. If you'd like to use the source code from this Github repository, you can set your buildpack to the Github URL:
 
 ```sh-session
-$ heroku buildpacks:set https://github.com/nice-registry/npm-buildpack
+$ heroku buildpacks:set https://github.com/galmis/npm-buildpack
 ```
